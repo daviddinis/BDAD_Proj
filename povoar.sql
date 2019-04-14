@@ -1,11 +1,18 @@
-//PARA ISTO FUNCIONAR É PRECISO:
--POPULAR A TABELA DE SERVIÇOS COM 15 SERVIÇOS (os ids de serviços devem ir de 01 a 15)
--Acho que é só isso, mas tb convinha criarem as Épocas e aquela relação ternária, n é preciso muitas, podem ser as estações, desde q cada serviço tenha pelo menos uma época na ternária
--Se alguma coisa não funcionar tentem perceber pq, se é algo q está mal formatado ou se é outra coisa mais grave e dps digam
-
-PRAGMA foreign_keys = ON;
-
-INSERT INTO Servicos VALUES (01, 'Space Mountain', );
+INSERT INTO Servicos VALUES (01, 'Space Mountain', 12, 1.40, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (02, 'Pirates of The Caribbean', 12, 1.40, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (03, 'Mikey Mouse Parade', 0, 0, 'Zona 1 e 2', NULL);
+INSERT INTO Servicos VALUES (04, 'McDonalds', 0, 0, 'Zona 1', NULL);
+INSERT INTO Servicos VALUES (05, 'Rick & Morty Portal Adventure', 8, 0, 'Zona 2', NULL);
+INSERT INTO Servicos VALUES (06, 'Monty Python Play', 18, 0, 'Zona 4', NULL);
+INSERT INTO Servicos VALUES (07, 'Hells Kitchen', 0, 0, 'Zona 2', NULL);
+INSERT INTO Servicos VALUES (08, 'Batman Rollercoaster', 8, 1.00, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (09, 'One Punch Man Training Session', 8, 1.00, 'Zona 4', NULL);
+INSERT INTO Servicos VALUES (10, 'Trinket Store', 0, 0, 'Zona 1', NULL);
+INSERT INTO Servicos VALUES (11, 'Pop World', 0, 0, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (12, 'Wonder Woman Rollercoaster', 12, 1.40, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (13, '1000 Way to Die: Haunting House', 18, 1.50, 'Zona 4', NULL);
+INSERT INTO Servicos VALUES (14, 'Jackass Live', 18, 0, 'Zona 3', NULL);
+INSERT INTO Servicos VALUES (15, 'Sasquatch', 13, 1.20, 'Zona 3', NULL);
 
 INSERT INTO Horarios VALUES (1, 08:00, 12:30, 'Segunda');
 INSERT INTO Horarios VALUES (2, 08:00, 12:30, 'Terça');
