@@ -119,12 +119,10 @@ DROP TABLE IF EXISTS FuncionarioDeServico;
 
 CREATE TABLE FuncionarioDeServico (
     ServiceID        INTEGER REFERENCES Servicos (ServiceID) 
-                             NOT NULL
-                             UNIQUE,
+                             NOT NULL,
     IDfuncionario    INTEGER NOT NULL
                              REFERENCES Funcionarios (IDpessoa),
-    Func_Internal_ID INTEGER NOT NULL
-                             UNIQUE,
+    Func_Internal_ID INTEGER NOT NULL,
     PRIMARY KEY (
         ServiceID,
         IDfuncionario
@@ -138,7 +136,7 @@ CREATE TABLE FuncionarioDeServico (
 DROP TABLE IF EXISTS Funcionarios;
 
 CREATE TABLE Funcionarios (
-    IDpessoa          INTEGER REFERENCES Pessoas (ID) 
+    IDpessoa          INTEGER PRIMARY KEY REFERENCES Pessoas (ID) 
                               NOT NULL,
     NomeEspecialidade TEXT    REFERENCES Especialidades (NomeEspecialidade) 
                               NOT NULL,
