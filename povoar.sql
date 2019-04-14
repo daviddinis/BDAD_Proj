@@ -4,6 +4,8 @@
 -Acho que é só isso, mas tb convinha criarem as Épocas e aquela relação ternária, n é preciso muitas, podem ser as estações, desde q cada serviço tenha pelo menos uma época na ternária
 -Se alguma coisa não funcionar tentem perceber pq, se é algo q está mal formatado ou se é outra coisa mais grave e dps digam
 
+PRAGMA foreign_keys = ON;
+
 INSERT INTO TipoDeBilhete VALUES ('Regular', 40);
 INSERT INTO TipoDeBilhete VALUES ('Gold', 60);
 INSERT INTO TipoDeBilhete VALUES ('Premium', 80);
