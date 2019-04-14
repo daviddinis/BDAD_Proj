@@ -1,10 +1,26 @@
 //PARA ISTO FUNCIONAR É PRECISO:
 -POPULAR A TABELA DE SERVIÇOS COM 15 SERVIÇOS (os ids de serviços devem ir de 01 a 15)
--POPULAR A TABELA HORARIOS COM 14 HORARIOS (os ids dos horários devem ir de 1 a 14 "Sim, sem o 0 antes")
 -Acho que é só isso, mas tb convinha criarem as Épocas e aquela relação ternária, n é preciso muitas, podem ser as estações, desde q cada serviço tenha pelo menos uma época na ternária
 -Se alguma coisa não funcionar tentem perceber pq, se é algo q está mal formatado ou se é outra coisa mais grave e dps digam
 
 PRAGMA foreign_keys = ON;
+
+INSERT INTO Servicos VALUES (01, 'Space Mountain', );
+
+INSERT INTO Horarios VALUES (1, 08:00, 12:30, 'Segunda');
+INSERT INTO Horarios VALUES (2, 08:00, 12:30, 'Terça');
+INSERT INTO Horarios VALUES (3, 08:00, 12:30, 'Quarta');
+INSERT INTO Horarios VALUES (4, 08:00, 12:30, 'Quinta');
+INSERT INTO Horarios VALUES (5, 08:00, 12:30, 'Sexta');
+INSERT INTO Horarios VALUES (6, 08:00, 12:30, 'Sabado');
+INSERT INTO Horarios VALUES (7, 08:00, 12:30, 'Domingo');
+INSERT INTO Horarios VALUES (8, 14:00, 19:00, 'Segunda');
+INSERT INTO Horarios VALUES (9, 14:00, 19:00, 'Terça');
+INSERT INTO Horarios VALUES (10, 14:00, 19:00, 'Quarta');
+INSERT INTO Horarios VALUES (11, 14:00, 19:00, 'Quinta');
+INSERT INTO Horarios VALUES (12, 14:00, 19:00, 'Sexta');
+INSERT INTO Horarios VALUES (13, 14:00, 19:00, 'Sabado');
+INSERT INTO Horarios VALUES (14, 14:00, 19:00, 'Domingo');
 
 INSERT INTO TipoDeBilhete VALUES ('Regular', 40);
 INSERT INTO TipoDeBilhete VALUES ('Gold', 60);
