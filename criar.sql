@@ -38,12 +38,10 @@ CREATE TABLE Bilhetes (
     Nbilhete   INTEGER UNIQUE
                        NOT NULL
                        PRIMARY KEY,
-    TypeId     INTEGER REFERENCES TipoDeBilhete (TypeID),
+    TypeName    TEXT REFERENCES TipoDeBilhete (TypeName),
     DataInicio DATE,
     DataFim    DATE,
-    Preco      DOUBLE  NOT NULL,
-    IDcliente  INTEGER NOT NULL
-                       REFERENCES Clientes (IDpessoa) 
+    Preco      DOUBLE
 );
 
 
@@ -67,7 +65,7 @@ CREATE TABLE Clientes (
                      NOT NULL
                      UNIQUE,
     Altura   REAL    NOT NULL,
-    Idade    INTEGER NOT NULL
+    Idade    INTEGER
 );
 
 
@@ -265,7 +263,7 @@ CREATE TABLE ServicosEpocasHorarios (
 DROP TABLE IF EXISTS TipoDeBilhete;
 
 CREATE TABLE TipoDeBilhete (
-    TypeID      INTEGER PRIMARY KEY
+    TypeName    TEXT PRIMARY KEY
                         NOT NULL,
     PrecoDiario DECIMAL NOT NULL
 );
