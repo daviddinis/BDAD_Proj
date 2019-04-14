@@ -109,14 +109,15 @@ CREATE TABLE Eventos (
 DROP TABLE IF EXISTS FuncionarioDeServico;
 
 CREATE TABLE FuncionarioDeServico (
-    ServiceID        INTEGER PRIMARY KEY
+    ServiceID        INTEGER
                              REFERENCES Servicos (ServiceID) 
                              NOT NULL
                              UNIQUE,
     IDfuncionario    INTEGER NOT NULL
                              REFERENCES Funcionarios (IDpessoa),
     Func_Internal_ID INTEGER NOT NULL
-                             UNIQUE
+                             UNIQUE,
+    PRIMARY KEY (ServiceID, IDfuncionario)
 );
 
 
