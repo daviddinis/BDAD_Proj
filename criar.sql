@@ -28,6 +28,7 @@ CREATE TABLE Atividades (
 );
 
 
+
 -- Table: Bilhetes
 DROP TABLE IF EXISTS Bilhetes;
 
@@ -77,8 +78,8 @@ CREATE TABLE Epocas (
     NomeDeEpoca TEXT PRIMARY KEY
                      NOT NULL
                      UNIQUE,
-    DataInicio  DATE NOT NULL,
-    DataFim     DATE NOT NULL
+    DataInicio  TEXT NOT NULL,
+    DataFim     TEXT NOT NULL
 );
 
 
