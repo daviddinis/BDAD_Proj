@@ -109,14 +109,15 @@ CREATE TABLE Eventos (
 DROP TABLE IF EXISTS FuncionarioDeServi?o;
 
 CREATE TABLE FuncionarioDeServi?o (
-    ServiceID        INTEGER PRIMARY KEY
+    ServiceID        INTEGER
                              REFERENCES Servicos (ServiceID) 
                              NOT NULL
                              UNIQUE,
     IDfuncionario    INTEGER NOT NULL
                              REFERENCES Funcionarios (IDpessoa),
     Func_Internal_ID INTEGER NOT NULL
-                             UNIQUE
+                             UNIQUE,
+    PRIMARY KEY (ServiceID, IDfuncionario)
 );
 
 
@@ -158,10 +159,11 @@ CREATE TABLE Horarios (
 DROP TABLE IF EXISTS HorariosTrabalho;
 
 CREATE TABLE HorariosTrabalho (
-    IDhorario     INTEGER PRIMARY KEY
+    IDhorario     INTEGER
                           REFERENCES Horarios (IDhorario),
     IDfuncionario INTEGER REFERENCES Funcionarios (IDpessoa) 
-                          NOT NULL
+                          NOT NULL,
+    PRIMARY KEY (IDhorario, IDfuncionario)
 );
 
 
@@ -204,13 +206,14 @@ CREATE TABLE Pessoas (
 DROP TABLE IF EXISTS RegistoPagamentos;
 
 CREATE TABLE RegistoPagamentos (
-    IDmes      INTEGER PRIMARY KEY
+    IDmes      INTEGER 
                        REFERENCES Mes (IDmes) 
                        NOT NULL,
     ID         INTEGER REFERENCES Funcionarios (IDpessoa),
     HorasExtra INTEGER,
     Bonus      INTEGER,
-    Salario    INTEGER
+    Salario    INTEGER,
+    PRIMARY KEY (IDmes, ID)
 );
 
 
@@ -246,13 +249,14 @@ CREATE TABLE Servicos (
 DROP TABLE IF EXISTS ServicosEpocasHorarios;
 
 CREATE TABLE ServicosEpocasHorarios (
-    ServiceID   INTEGER PRIMARY KEY
+    ServiceID   INTEGER 
                         REFERENCES Servicos (ServiceID) 
                         NOT NULL,
     NomeDeEpoca TEXT    REFERENCES Epocas (NomeDeEpoca) 
                         NOT NULL,
     IDhorario   INTEGER REFERENCES Horarios (IDhorario) 
-                        NOT NULL
+                        NOT NULL,
+    PRIMARY KEY (ServiceID, NomeDeEpoca, IDhorario)
 );
 
 
@@ -275,7 +279,8 @@ CREATE TABLE Visitas (
     ServiceID    INTEGER NOT NULL
                          REFERENCES Servicos (ServiceID),
     DataDeRating DATE,
-    Rating       DECIMAL
+    Rating       DECIMAL,
+    PRIMARY KEY (IDcliente, ServiceID)
 );
 
 
