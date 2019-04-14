@@ -6,6 +6,9 @@
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
+
+
+
 -- Table: Aderecos
 DROP TABLE IF EXISTS Aderecos;
 
@@ -280,6 +283,19 @@ CREATE TABLE Visitas (
     DataDeRating DATE,
     Rating       DECIMAL,
     PRIMARY KEY (IDcliente, ServiceID)
+);
+
+
+--table de departamentos
+DROP TABLE IF EXISTS Departamentos;
+
+CREATE TABLE Departamentos (
+    Nome           TEXT    PRIMARY KEY
+                           UNIQUE
+                           NOT NULL,
+    StoreServiceID INTEGER REFERENCES Lojas (StoreServiceID) 
+                           NOT NULL,
+    Funcao         TEXT
 );
 
 
