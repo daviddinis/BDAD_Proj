@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.2.1 on dom abr 14 17:49:37 2019
+-- File generated with SQLiteStudio v3.2.1 on dom abr 14 20:56:18 2019
 --
 -- Text encoding used: Shift_JIS
 --
@@ -53,7 +53,7 @@ CREATE TABLE Carrosseis (
     CarrousselServiceID INTEGER PRIMARY KEY
                                 REFERENCES Atividades (ActivityServiceID) 
                                 NOT NULL,
-    DataProxManuten??o  DATE
+    DataProxManutencao  DATE
 );
 
 
@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS Especialidades;
 CREATE TABLE Especialidades (
     NomeEspecialidade TEXT    PRIMARY KEY
                               NOT NULL,
-    Sal?rioBase       DECIMAL,
+    SalarioBase       DECIMAL,
     ExtraHora         DECIMAL
 );
 
@@ -101,23 +101,22 @@ CREATE TABLE Eventos (
                            REFERENCES Atividades (ActivityServiceID) 
                            NOT NULL,
     DataDeEvento   DATE,
-    Dura??o        TIME
+    Duracao        TIME
 );
 
 
--- Table: FuncionarioDeServi?o
-DROP TABLE IF EXISTS FuncionarioDeServi?o;
+-- Table: FuncionarioDeServico
+DROP TABLE IF EXISTS FuncionarioDeServico;
 
-CREATE TABLE FuncionarioDeServi?o (
-    ServiceID        INTEGER
+CREATE TABLE FuncionarioDeServico (
+    ServiceID        INTEGER PRIMARY KEY
                              REFERENCES Servicos (ServiceID) 
                              NOT NULL
                              UNIQUE,
     IDfuncionario    INTEGER NOT NULL
                              REFERENCES Funcionarios (IDpessoa),
     Func_Internal_ID INTEGER NOT NULL
-                             UNIQUE,
-    PRIMARY KEY (ServiceID, IDfuncionario)
+                             UNIQUE
 );
 
 
