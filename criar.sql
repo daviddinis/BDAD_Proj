@@ -1,13 +1,9 @@
---
--- File generated with SQLiteStudio v3.2.1 on dom abr 14 20:56:18 2019
+-- File generated with SQLiteStudio v3.2.1 on dom abr 14 23:30:59 2019
 --
 -- Text encoding used: Shift_JIS
 --
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
-
-
-
 
 -- Table: Aderecos
 DROP TABLE IF EXISTS Aderecos;
@@ -31,7 +27,6 @@ CREATE TABLE Atividades (
 );
 
 
-
 -- Table: Bilhetes
 DROP TABLE IF EXISTS Bilhetes;
 
@@ -41,7 +36,7 @@ CREATE TABLE Bilhetes (
     Nbilhete   INTEGER UNIQUE
                        NOT NULL
                        PRIMARY KEY,
-    TypeName    TEXT REFERENCES TipoDeBilhete (TypeName),
+    TypeName   TEXT    REFERENCES TipoDeBilhete (TypeName),
     DataInicio DATE,
     DataFim    DATE,
     Preco      DOUBLE
@@ -65,10 +60,22 @@ DROP TABLE IF EXISTS Clientes;
 CREATE TABLE Clientes (
     IDpessoa INTEGER REFERENCES Pessoas (ID) 
                      PRIMARY KEY
-                     NOT NULL
-                     UNIQUE,
+                     NOT NULL,
     Altura   REAL    NOT NULL,
     Idade    INTEGER
+);
+
+
+-- Table: Departamentos
+DROP TABLE IF EXISTS Departamentos;
+
+CREATE TABLE Departamentos (
+    Nome           TEXT    PRIMARY KEY
+                           UNIQUE
+                           NOT NULL,
+    StoreServiceID INTEGER REFERENCES Lojas (StoreServiceID) 
+                           NOT NULL,
+    Funcao         TEXT
 );
 
 
@@ -111,14 +118,19 @@ CREATE TABLE Eventos (
 DROP TABLE IF EXISTS FuncionarioDeServico;
 
 CREATE TABLE FuncionarioDeServico (
-    ServiceID        INTEGER
-                             REFERENCES Servicos (ServiceID) 
-                             NOT NULL,
+    ServiceID        INTEGER REFERENCES Servicos (ServiceID) 
+                             NOT NULL
+                             UNIQUE,
     IDfuncionario    INTEGER NOT NULL
                              REFERENCES Funcionarios (IDpessoa),
-    Func_Internal_ID INTEGER NOT NULL,
-    PRIMARY KEY (ServiceID, IDfuncionario),
+    Func_Internal_ID INTEGER NOT NULL
+                             UNIQUE,
+    PRIMARY KEY (
+        ServiceID,
+        IDfuncionario
+    ),
     UNIQUE (Func_Internal_ID, ServiceID)
+
 );
 
 
@@ -126,8 +138,7 @@ CREATE TABLE FuncionarioDeServico (
 DROP TABLE IF EXISTS Funcionarios;
 
 CREATE TABLE Funcionarios (
-    IDpessoa          INTEGER PRIMARY KEY REFERENCES Pessoas (ID)
-                              UNIQUE 
+    IDpessoa          INTEGER REFERENCES Pessoas (ID) 
                               NOT NULL,
     NomeEspecialidade TEXT    REFERENCES Especialidades (NomeEspecialidade) 
                               NOT NULL,
@@ -161,11 +172,13 @@ CREATE TABLE Horarios (
 DROP TABLE IF EXISTS HorariosTrabalho;
 
 CREATE TABLE HorariosTrabalho (
-    IDhorario     INTEGER
-                          REFERENCES Horarios (IDhorario),
+    IDhorario     INTEGER REFERENCES Horarios (IDhorario),
     IDfuncionario INTEGER REFERENCES Funcionarios (IDpessoa) 
                           NOT NULL,
-    PRIMARY KEY (IDhorario, IDfuncionario)
+    PRIMARY KEY (
+        IDhorario,
+        IDfuncionario
+    )
 );
 
 
@@ -208,14 +221,16 @@ CREATE TABLE Pessoas (
 DROP TABLE IF EXISTS RegistoPagamentos;
 
 CREATE TABLE RegistoPagamentos (
-    IDmes      INTEGER 
-                       REFERENCES Mes (IDmes) 
+    IDmes      INTEGER REFERENCES Mes (IDmes) 
                        NOT NULL,
     ID         INTEGER REFERENCES Funcionarios (IDpessoa),
     HorasExtra INTEGER,
     Bonus      INTEGER,
     Salario    INTEGER,
-    PRIMARY KEY (IDmes, ID)
+    PRIMARY KEY (
+        IDmes,
+        ID
+    )
 );
 
 
@@ -251,14 +266,17 @@ CREATE TABLE Servicos (
 DROP TABLE IF EXISTS ServicosEpocasHorarios;
 
 CREATE TABLE ServicosEpocasHorarios (
-    ServiceID   INTEGER 
-                        REFERENCES Servicos (ServiceID) 
+    ServiceID   INTEGER REFERENCES Servicos (ServiceID) 
                         NOT NULL,
     NomeDeEpoca TEXT    REFERENCES Epocas (NomeDeEpoca) 
                         NOT NULL,
     IDhorario   INTEGER REFERENCES Horarios (IDhorario) 
                         NOT NULL,
-    PRIMARY KEY (ServiceID, NomeDeEpoca, IDhorario)
+    PRIMARY KEY (
+        ServiceID,
+        NomeDeEpoca,
+        IDhorario
+    )
 );
 
 
@@ -266,7 +284,7 @@ CREATE TABLE ServicosEpocasHorarios (
 DROP TABLE IF EXISTS TipoDeBilhete;
 
 CREATE TABLE TipoDeBilhete (
-    TypeName    TEXT PRIMARY KEY
+    TypeName    TEXT    PRIMARY KEY
                         NOT NULL,
     PrecoDiario DECIMAL NOT NULL
 );
@@ -282,20 +300,10 @@ CREATE TABLE Visitas (
                          REFERENCES Servicos (ServiceID),
     DataDeRating DATE,
     Rating       DECIMAL,
-    PRIMARY KEY (IDcliente, ServiceID)
-);
-
-
---table de departamentos
-DROP TABLE IF EXISTS Departamentos;
-
-CREATE TABLE Departamentos (
-    Nome           TEXT    PRIMARY KEY
-                           UNIQUE
-                           NOT NULL,
-    StoreServiceID INTEGER REFERENCES Lojas (StoreServiceID) 
-                           NOT NULL,
-    Funcao         TEXT
+    PRIMARY KEY (
+        IDcliente,
+        ServiceID
+    )
 );
 
 
