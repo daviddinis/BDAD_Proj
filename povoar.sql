@@ -14,20 +14,40 @@ INSERT INTO Servicos VALUES (13, '1000 Way to Die: Haunting House', 18, 1.50, 'Z
 INSERT INTO Servicos VALUES (14, 'Jackass Live', 18, 0, 'Zona 3', NULL);
 INSERT INTO Servicos VALUES (15, 'Sasquatch', 13, 1.20, 'Zona 3', NULL);
 
-INSERT INTO Horarios VALUES (1, 08:00, 12:30, 'Segunda');
-INSERT INTO Horarios VALUES (2, 08:00, 12:30, 'Terça');
-INSERT INTO Horarios VALUES (3, 08:00, 12:30, 'Quarta');
-INSERT INTO Horarios VALUES (4, 08:00, 12:30, 'Quinta');
-INSERT INTO Horarios VALUES (5, 08:00, 12:30, 'Sexta');
-INSERT INTO Horarios VALUES (6, 08:00, 12:30, 'Sabado');
-INSERT INTO Horarios VALUES (7, 08:00, 12:30, 'Domingo');
-INSERT INTO Horarios VALUES (8, 14:00, 19:00, 'Segunda');
-INSERT INTO Horarios VALUES (9, 14:00, 19:00, 'Terça');
-INSERT INTO Horarios VALUES (10, 14:00, 19:00, 'Quarta');
-INSERT INTO Horarios VALUES (11, 14:00, 19:00, 'Quinta');
-INSERT INTO Horarios VALUES (12, 14:00, 19:00, 'Sexta');
-INSERT INTO Horarios VALUES (13, 14:00, 19:00, 'Sabado');
-INSERT INTO Horarios VALUES (14, 14:00, 19:00, 'Domingo');
+INSERT INTO Epocas VALUES ('Verao', 'Junho', 'Agosto');
+INSERT INTO Epocas VALUES ('Outono', 'Setembro', 'Novembro');
+INSERT INTO Epocas VALUES ('Inverno', 'Dezembro', 'Fevereiro');
+INSERT INTO Epocas VALUES ('Primavera', 'Março', 'Maio');
+
+INSERT INTO Horarios VALUES (1, '08:00', '12:30', 'Segunda');
+INSERT INTO Horarios VALUES (2, '08:00', '12:30', 'Terça');
+INSERT INTO Horarios VALUES (3, '08:00', '12:30', 'Quarta');
+INSERT INTO Horarios VALUES (4, '08:00', '12:30', 'Quinta');
+INSERT INTO Horarios VALUES (5, '08:00', '12:30', 'Sexta');
+INSERT INTO Horarios VALUES (6, '08:00', '12:30', 'Sabado');
+INSERT INTO Horarios VALUES (7, '08:00', '12:30', 'Domingo');
+INSERT INTO Horarios VALUES (8, '14:00', '19:00', 'Segunda');
+INSERT INTO Horarios VALUES (9, '14:00', '19:00', 'Terça');
+INSERT INTO Horarios VALUES (10, '14:00', '19:00', 'Quarta');
+INSERT INTO Horarios VALUES (11, '14:00', '19:00', 'Quinta');
+INSERT INTO Horarios VALUES (12, '14:00', '19:00', 'Sexta');
+INSERT INTO Horarios VALUES (13, '14:00', '19:00', 'Sabado');
+INSERT INTO Horarios VALUES (14, '14:00', '19:00', 'Domingo');
+
+INSERT INTO ServicosEpocasHorarios VALUES (01, 'Verao', 2);
+INSERT INTO ServicosEpocasHorarios VALUES (02, 'Outono', 1);
+INSERT INTO ServicosEpocasHorarios VALUES (03, 'Verao', 15);
+INSERT INTO ServicosEpocasHorarios VALUES (04, 'Inverno', 3);
+INSERT INTO ServicosEpocasHorarios VALUES (05, 'Verao', 10);
+INSERT INTO ServicosEpocasHorarios VALUES (06, 'Inverno', 9);
+INSERT INTO ServicosEpocasHorarios VALUES (08, 'Outono', 13);
+INSERT INTO ServicosEpocasHorarios VALUES (09, 'Primavera', 4);
+INSERT INTO ServicosEpocasHorarios VALUES (10, 'Inverno', 12);
+INSERT INTO ServicosEpocasHorarios VALUES (11, 'Verao', 5);
+INSERT INTO ServicosEpocasHorarios VALUES (12, 'Outono', 8);
+INSERT INTO ServicosEpocasHorarios VALUES (13, 'Primavera', 7);
+INSERT INTO ServicosEpocasHorarios VALUES (14, 'Inverno', 6);
+INSERT INTO ServicosEpocasHorarios VALUES (15, 'Verao', 11);
 
 INSERT INTO TipoDeBilhete VALUES ('Regular', 40);
 INSERT INTO TipoDeBilhete VALUES ('Gold', 60);
