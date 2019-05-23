@@ -1,0 +1,15 @@
+DROP TRIGGER IF EXISTS RatingMedio;
+
+CREATE TRIGGER RatingMedio
+BEFORE INSERT ON Visitas
+WHEN NEW.DataDeRating NOT BETWEEN 
+(SELECT Bilhetes.DataInicio FROM Bilhetes WHERE NEW.IDcliente = Bilhetes.ClientId)
+AND
+(SELECT Bilhetes.DataFim FROM Bilhetes WHERE NEW.IDcliente = Bilhetes.ClientId)
+OR
+(SELECT Clientes.Altura FROM Clientes WHERE NEW.IDcliente = Clientes.IDpessoa) < (SELECT Servicos.AlturaMinima FROM Servicos WHERE NEW.ServiceID = Servicos.ServiceID)
+OR
+(SELECT Clientes.Idade FROM Clientes WHERE NEW.IDcliente = Clientes.IDpessoa) < (SELECT Servicos.IdadeMinima FROM Servicos WHERE NEW.ServiceID = Servicos.ServiceID)
+Begin
+    SELECT RAISE(IGNORE);
+End;
