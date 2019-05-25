@@ -1,5 +1,3 @@
-" Obter todos os carrosséis com data de manutenção nos próximos 30 dias (Nome de carrossel; data a fazer a manutenção)."
-
 select 
 DataProxManutencao, NomeDeServico
 from
