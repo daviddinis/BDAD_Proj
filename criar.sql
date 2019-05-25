@@ -86,8 +86,8 @@ CREATE TABLE Epocas (
     NomeDeEpoca TEXT PRIMARY KEY
                      NOT NULL
                      UNIQUE,
-    DataInicio  TEXT NOT NULL,
-    DataFim     TEXT NOT NULL
+    DataInicio  INT  NOT NULL,
+    DataFim     INT  NOT NULL
 );
 
 
