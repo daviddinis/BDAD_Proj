@@ -63,10 +63,11 @@ INSERT INTO Departamentos VALUES('markting', 10, 'publicidade da loja');
 INSERT INTO Departamentos VALUES('shipping', 11, 'encomendas online');
 INSERT INTO Departamentos VALUES('tesouraria', 11, 'tratamento de dinheiro');
 
-INSERT INTO Epocas VALUES ('Verao', 'Junho', 'Agosto');
-INSERT INTO Epocas VALUES ('Outono', 'Setembro', 'Novembro');
-INSERT INTO Epocas VALUES ('Inverno', 'Dezembro', 'Fevereiro');
-INSERT INTO Epocas VALUES ('Primavera', 'Março', 'Maio');
+INSERT INTO Epocas VALUES ('Verao', 186, 278);
+INSERT INTO Epocas VALUES ('Outono', 279, 365);
+INSERT INTO Epocas VALUES ('Inverno',  1, 92);
+INSERT INTO Epocas VALUES ('Primavera', 93, 185);
+
 
 INSERT INTO Horarios VALUES (1, '08:00', '12:30', 'Segunda');
 INSERT INTO Horarios VALUES (2, '08:00', '12:30', 'Terça');
