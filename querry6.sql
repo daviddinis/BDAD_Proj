@@ -1,8 +1,11 @@
+
+/*Obter todos os clientes que foram só a um tipo de serviço e não aos outros 2. (E o serviço a que foram)*/
+
 select 
-DataProxManutencao
+Nome, NomeDeServico
 from
-Carrosseis
-where 
-DataProxManutencao > (CURRENT_TIME + 30);
-
-
+Pessoas, Servicos, Visitas, Clientes, Lojas, Restaurantes, Atividades
+where
+Pessoas.ID =  Clientes.IDpessoa
+and
+Visitas.ServiceID = Lojas.StoreServiceID;
