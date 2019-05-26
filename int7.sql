@@ -1,3 +1,9 @@
+-- 7 Obter todos os funcionários que trabalham aos fins de semana e os seus horários todos. 
+
+.mode	columns
+.headers	on
+.nullvalue	NULL
+
 SELECT 
 Pessoas.Nome AS "Funcionário",
 GROUP_CONCAT((SELECT Horarios.HoraInicio || " - " || Horarios.HoraFim WHERE Horarios.DiaSemana = "Sabado"), ", ") AS "Horarios Sábado",

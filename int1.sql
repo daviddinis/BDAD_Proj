@@ -1,3 +1,9 @@
+-- 1 Para cada género, obter as faixas etárias mais prevalentes de clientes.
+
+.mode	columns
+.headers	on
+.nullvalue	NULL
+
 DROP VIEW IF EXISTS maxAgeF;
 DROP VIEW IF EXISTS maxAgeM;
 

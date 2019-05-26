@@ -1,3 +1,9 @@
+-- 8 Obter todos os chefes e seus subordinados empregados, bem como todos os outros sub-chefes abaixo de cada Chefe 
+
+.mode	columns
+.headers	on
+.nullvalue	NULL
+
 SELECT
 "Nome do Chefe",
 "Empregados Subordinados(ID)",
