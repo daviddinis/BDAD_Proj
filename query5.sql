@@ -1,19 +1,20 @@
-select Nome, NomeDeServico
-from Pessoas, Servicos, Visitas
-where IDcliente not in 
+-- Obter todos os clientes que foram só aos carrosséis. (E o nome dos carrosséis) 
+SELECT Nome, NomeDeServico
+FROM Pessoas, Servicos, Visitas
+WHERE IDcliente NOT IN 
 (
-    select
+    SELECT
     IDcliente
-    from
+    FROM
     Visitas, Lojas, Restaurantes, Eventos
-    where
+    WHERE
     Visitas.ServiceID  = Lojas.StoreServiceID
-    or
+    OR
     Visitas.ServiceID = Restaurantes.RestaurantServiceID
-    or
+    OR
     Visitas.ServiceID = Eventos.EventServiceID
 )
-and 
+AND
 Pessoas.ID = Visitas.IDcliente
-and
+AND
 Visitas.ServiceID = Servicos.ServiceID;

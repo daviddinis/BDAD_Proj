@@ -1,14 +1,17 @@
-DROP TRIGGER IF EXISTS SalarioPagamentos;
+select IDmes, nome , nomeEspecialidade, salario, SalarioBase, bonus, HorasExtra, ExtraHora
+from RegistoPagamentos,Pessoas, Funcionarios, Especialidades
+INNER JOIN (
+    SELECT max(IDmes) AS max
+    FROM RegistoPagamentos
+)b ON RegistoPagamentos.IDmes = b.max
+where
+RegistoPagamentos.Salario > 2500
+and 
+Pessoas.ID = RegistoPagamentos.ID
+and
+Funcionarios.IDpessoa = RegistoPagamentos.ID
+and
+Funcionarios.NomeEspecialidade = Especialidades.NomeEspecialidade
+;
 
-CREATE TRIGGER SalarioPagamentos
-AFTER INSERT ON RegistoPagamentos
-BEGIN    
-    UPDATE RegistoPagamentos
-    SET Salario = Bonus +
-    (SELECT SalarioBase FROM Especialidades WHERE NomeEspecialidade = 
-    (SELECT NomeEspecialidade FROM Funcionarios WHERE IDpessoa = NEW.ID)) +
-    HorasExtra *
-    (SELECT ExtraHora FROM Especialidades WHERE NomeEspecialidade = 
-    (SELECT NomeEspecialidade FROM Funcionarios WHERE IDpessoa = NEW.ID))
-    WHERE ID = NEW.ID AND IDmes = NEW.IDmes;
-END;
+
