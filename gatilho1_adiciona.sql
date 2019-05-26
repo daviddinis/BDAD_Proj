@@ -2,8 +2,6 @@
 
 DROP TRIGGER IF EXISTS RatingMedio;
 
-DROP TRIGGER IF EXISTS RatingMedio;
-
 CREATE TRIGGER RatingMedio
 AFTER INSERT ON Visitas
 BEGIN    

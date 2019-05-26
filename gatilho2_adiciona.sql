@@ -1,16 +1,17 @@
 -- Check Visits Trigger
 
-DROP TRIGGER IF EXISTS RatingMedio;
+DROP TRIGGER IF EXISTS CheckVisitas;
 
-CREATE TRIGGER RatingMedio
+CREATE TRIGGER CheckVisitas
 BEFORE INSERT ON Visitas
-FOR EACH ROW
-WHEN EXISTS (SELECT * FROM Visitas
-WHERE DataDeRating NOT BETWEEN 
-(SELECT Bilhetes.DataInicio FROM Visitas INNER JOIN Bilhetes ON Visitas.IDcliente = Bilhetes.ClientId)
+WHEN NEW.DataDeRating NOT BETWEEN 
+(SELECT Bilhetes.DataInicio FROM Bilhetes WHERE NEW.IDcliente = Bilhetes.ClientId)
 AND
-(SELECT Bilhetes.DataFim FROM Visitas INNER JOIN Bilhetes ON Visitas.IDcliente = Bilhetes.ClientId))
+(SELECT Bilhetes.DataFim FROM Bilhetes WHERE NEW.IDcliente = Bilhetes.ClientId)
+OR
+(SELECT Clientes.Altura FROM Clientes WHERE NEW.IDcliente = Clientes.IDpessoa) < (SELECT Servicos.AlturaMinima FROM Servicos WHERE NEW.ServiceID = Servicos.ServiceID)
+OR
+(SELECT Clientes.Idade FROM Clientes WHERE NEW.IDcliente = Clientes.IDpessoa) < (SELECT Servicos.IdadeMinima FROM Servicos WHERE NEW.ServiceID = Servicos.ServiceID)
 Begin
-    SELECT RAISE(ABORT, 'Something bad happened');
+    SELECT RAISE(IGNORE);
 End;
-
