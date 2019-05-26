@@ -4,7 +4,7 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT Nome, NomeDeServico
+SELECT Nome, Genero, GROUP_CONCAT(NomeDeServico, ", ") AS "Rollercoasters"
 FROM Pessoas, Servicos, Visitas
 WHERE IDcliente NOT IN 
 (
@@ -22,4 +22,5 @@ WHERE IDcliente NOT IN
 AND
 Pessoas.ID = Visitas.IDcliente
 AND
-Visitas.ServiceID = Servicos.ServiceID;
+Visitas.ServiceID = Servicos.ServiceID
+GROUP BY Nome;
