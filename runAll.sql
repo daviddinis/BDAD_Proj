@@ -15,8 +15,7 @@
 .read gatilho3_remove.sql
 
 .read int1.sql
-.read int2min.sql
-.read int2max.sql 
+.read int2.sql
 .read int3.sql
 .read int4.sql
 .read int5.sql
