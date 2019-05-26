@@ -6,7 +6,7 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT IDmes, nomeEspecialidade, nome , salario, SalarioBase, bonus, HorasExtra, ExtraHora
+SELECT IDmes, Funcionarios.NomeEspecialidade, nome , salario, SalarioBase, bonus, HorasExtra, ExtraHora
 FROM RegistoPagamentos,Pessoas, Funcionarios, Especialidades
 INNER JOIN (
     SELECT max(IDmes) AS max

@@ -1,1 +1,1 @@
-DROP TRIGGER RatingMedio;
+DROP TRIGGER CheckVisitas;
